@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot name="amr_robot">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.5 0.3 0.1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="caster_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.05"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="base_to_caster" type="fixed">
+    <parent link="base_link"/>
+    <child link="caster_wheel"/>
+    <origin xyz="0.0 -0.15 -0.05" rpy="0 0 0"/>
+  </joint>
+</robot>

@@ -55,20 +55,35 @@
         <axis xyz="0 0 1"/>
     </joint>
 
-    <!-- REAR CASTER WHEEL (Balance) -->
-    <link name="caster_wheel_rear">
+    <!-- REAR WHEELS -->
+<link name="wheel_rear_left">
         <visual>
             <geometry>
-                <sphere radius="0.1"/>
+                <cylinder radius="0.1" length="0.04"/>
             </geometry>
             <material name="black"/>
         </visual>
     </link>
 
-    <joint name="joint_caster_wheel_rear" type="fixed">
+    <joint name="joint_wheel_rear_left" type="continuous">
         <parent link="base_link"/>
-        <child link="caster_wheel_rear"/>
-        <origin xyz="-0.2 0 0" rpy="0 0 0"/>
+        <child link="wheel_rear_left"/>
+        <origin xyz="-0.2 0.15 0" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
     </joint>
 
-</robot>
+    <link name="wheel_rear_right">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.04"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <joint name="joint_wheel_rear_right" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel_rear_right"/>
+        <origin xyz="-0.2 -0.15 0" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
